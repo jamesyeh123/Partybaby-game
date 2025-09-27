@@ -1,0 +1,98 @@
+<div class="container">
+    <!-- 開始頁面 -->
+    <div class="section active" id="start-section">
+        <div class="header">
+            <h1 class="title">🎉 性別派對</h1>
+            <p class="subtitle">和朋友一起猜測寶寶的性別吧！</p>
+        </div>
+        
+        <button class="btn" onclick="createGame()">建立新遊戲</button>
+        <button class="btn" onclick="showJoinGame()">加入遊戲</button>
+    </div>
+
+    <!-- 建立遊戲 -->
+    <div class="section" id="create-section">
+        <div class="header">
+            <h2>建立新遊戲</h2>
+        </div>
+        
+        <div class="input-group">
+            <label for="hostName">主辦人姓名：</label>
+            <input type="text" id="hostName" placeholder="輸入您的姓名">
+        </div>
+        
+        <div class="input-group">
+            <label for="babyName">寶寶暱稱：</label>
+            <input type="text" id="babyName" placeholder="輸入寶寶的暱稱">
+        </div>
+        
+        <button class="btn" onclick="startGame()">開始遊戲</button>
+        <button class="btn" onclick="goBack()">返回</button>
+    </div>
+
+    <!-- 加入遊戲 -->
+    <div class="section" id="join-section">
+        <div class="header">
+            <h2>加入遊戲</h2>
+        </div>
+        
+        <div class="input-group">
+            <label for="playerName">您的姓名：</label>
+            <input type="text" id="playerName" placeholder="輸入您的姓名">
+        </div>
+        
+        <div class="input-group">
+            <label for="inviteCode">邀請碼：</label>
+            <input type="text" id="inviteCode" placeholder="輸入6位數邀請碼">
+        </div>
+        
+        <button class="btn" onclick="joinGame()">加入遊戲</button>
+        <button class="btn" onclick="goBack()">返回</button>
+    </div>
+
+    <!-- 遊戲主頁面 -->
+    <div class="section" id="game-section">
+        <div class="header">
+            <h2>🍼 <span id="displayBabyName">寶寶</span> 的性別是？</h2>
+        </div>
+        
+        <div class="invite-code">
+            <p>邀請朋友加入遊戲！</p>
+            <p>邀請碼：<strong id="gameCode">------</strong></p>
+        </div>
+        
+        <div class="vote-section">
+            <h3>投下您的一票：</h3>
+            <div class="vote-buttons">
+                <button class="btn btn-boy" onclick="vote('boy')">👶 男孩</button>
+                <button class="btn btn-girl" onclick="vote('girl')">👧 女孩</button>
+            </div>
+        </div>
+        
+        <div class="vote-count">
+            <h3>目前投票結果：</h3>
+            <p>👶 男孩：<span id="boyVotes">0</span> 票</p>
+            <p>👧 女孩：<span id="girlVotes">0</span> 票</p>
+        </div>
+        
+        <div class="participants-list">
+            <h3>參與者 (<span id="participantCount">0</span>)：</h3>
+            <div id="participantsList"></div>
+        </div>
+        
+        <button class="btn" onclick="revealGender()" id="revealBtn" style="display:none;">🎉 揭曉答案</button>
+        <button class="btn" onclick="resetGame()">重新開始</button>
+    </div>
+
+    <!-- 結果頁面 -->
+    <div class="section" id="result-section">
+        <div class="result-section">
+            <h2>🎉 答案揭曉！</h2>
+            <div class="winner-emoji" id="resultEmoji">👶</div>
+            <h3 id="resultText">是個男孩！</h3>
+            <p id="winnerText">猜對的人：</p>
+            <div id="winnersList"></div>
+            <button class="btn" onclick="resetGame()">再玩一次</button>
+        </div>
+    </div>
+</div>
